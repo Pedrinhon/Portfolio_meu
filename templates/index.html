@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Link para pegar os ícones bonitos das redes sociais-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Portfólio</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav main-nav">
+        <ul class="main-nav__list main-list">
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#home">INÍCIO</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#about">SOBRE</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#skills">MINHAS HABILIDADES</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Seção inicial -->
+      <section class="main__home home" id="home">
+        <h1 class="home__title">Pedro Alves Cunha</h1>
+        <p class="home__subtitle">DESENVOLVEDOR WEB, PROGRAMADOR PYTHON</p>
+      </section>
+
+      <!-- Seção sobre mim -->
+      <section class="main__about about" id="about">
+        <h2 class="about__title">SOBRE MIM</h2>
+        <div class="about__info info-block">
+          <p class="info-block__text">
+            Meu nome é Pedro, tenho 14 anos. Sou um programador de python, aprendi na escola Kodland. Programo diversas coisas
+            em python, como Desenvolvimento de Bots, criação de jogos com pygame, Desenvolvimentos de sites HTML e muito mais!
+          </p>
+          <img
+            class="info-block__img"
+            src="../static/img/foto.png"
+            alt="foto minha"
+            width="250"
+            height="250"
+          />
+        </div>
+      </section>
+
+      <!-- Seção de habilidades -->
+      <section class="main__skills skills" id="skills">
+        <h2 class="skills__title">MINHAS HABILIDADES</h2>
+        <form action="/skills" method="POST">
+          <ul class="skills__list skills-list">
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/python.png"
+                alt="python"
+                width="150"
+                height="150"
+              />
+              <p>Python</p>
+              <span class="skill__info">Uma calculadora energética</span>
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_python"
+                value="VER PROJETO"
+              />
+            </li>
+
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/discord.png"
+                alt="discord"
+                width="150"
+                height="150"
+              />
+              <p>Bot Discord</p>
+              <span class="skill__info">Um bot para se divertir</span>
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_discord"
+                value="VER PROJETO"
+              />
+            </li>
+
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/html.png"
+                alt="html"
+                width="150"
+                height="150"
+              />
+              <p>HTML</p>
+              <span class="skill__info">Um site que gera memes</span>
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_html"
+                value="VER PROJETO"
+              />
+            </li>
+
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/db.webp"
+                alt="SQL"
+                width="150"
+                height="150"
+              />
+              <p>Banco de Dados</p>
+              <span class="skill__info">Um site que você armazena cartas que você escreve, tipo um diário</span>
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_db"
+                value="VER PROJETO"
+              />
+            </li>
+          </ul>
+        </form>
+
+        {% if button_python %}
+        <div class="skills__project project" id="project">
+          <img
+            class="project__img"
+            src="../static/img/python-project.png"
+            alt="projeto"
+            width="500"
+          />
+          <a class="project__link" href="https://github.com/Pedrinhon/adicionais-calculadora-main.git">Abrir no GitHub</a>
+        </div>
+        {% endif %}
+
+        {% if button_discord %}
+        <div class="skills__project project" id="project">
+          <img
+            class="project__img"
+            src="../static/img/img_discord.png"
+            alt="projeto"
+            width="500"
+          />
+          <a class="project__link" href="">Abrir no GitHub</a>
+        </div>
+        {% endif %}
+
+        {% if button_html %}
+        <div class="skills__project project" id="project">
+          <img
+            class="project__img"
+            src="../static/img/img_html.png"
+            alt="projeto"
+            width="500"
+          />
+          <a class="project__link" href="https://github.com/Pedrinhon/gerador_de_memes.git">Abrir no GitHub</a>
+        </div>
+        {% endif %}
+
+        {% if button_db %}
+        <div class="skills__project project" id="project">
+          <img
+            class="project__img"
+            src="../static/img/img_bd.png"
+            alt="projeto"
+            width="500"
+          />
+          <a class="project__link" href="https://github.com/Pedrinhon/diario_pessoal.git">Abrir no GitHub</a>
+        </div>
+        {% endif %}
+      </section>
+
+      <!-- Formulário de feedback -->
+      <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">FEEDBACK</h2>
+        <form action="/feedback" method="POST" class="feedback__form form">
+          <label for="email">
+            <input
+              type="email"
+              class="form__input"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </label>
+
+          <label for="text">
+            <textarea
+              name="text"
+              class="form__input"
+              id="text"
+              cols="70"
+              rows="10"
+              required
+              placeholder="Comentário"
+            ></textarea>
+          </label>
+
+          <button class="form__button" type="submit">ENVIAR</button>
+        </form>
+        {% if certo %}
+          <p class="feedback-sucesso">{{ certo }}</p>
+        {% endif %}
+      </section>
+    </main>
+
+    <!-- Rodapé para links de redes sociais -->
+    <footer>
+    <p>Siga me nas redes socias!</p>
+    <p> -------------------------------</p>
+  
+      <div class="redes">
+        <a href="https://www.instagram.com/pedro.alv.cun?igsh=a2RmdWliYXF6cWpy"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@pedro_etec?si=qBfHiLQf_3Zxxw0d"><i class="fab fa-youtube"></i></a>
+        <a href="https://vm.tiktok.com/ZS9R662dcgX1D-BmfbQ/"><i class="fab fa-tiktok"></i></a>
+
+    <p> -------------------------------</p>
+    <p>Portfolio criado em 2026!</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
