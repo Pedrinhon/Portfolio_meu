@@ -25,6 +25,11 @@
           <li class="main-list__item list-item">
             <a class="list-item__link" href="#skills">MINHAS HABILIDADES</a>
           </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#feedback">FEEDBACK</a>
+          </li>
+
+          </li>
         </ul>
       </nav>
     </header>
@@ -44,6 +49,10 @@
             Meu nome é Pedro, tenho 14 anos. Sou um programador de python, aprendi na escola Kodland. Programo diversas coisas
             em python, como Desenvolvimento de Bots, criação de jogos com pygame, Desenvolvimentos de sites HTML e muito mais!
           </p>
+              <!-- BOTÃO DO CURRÍCULO -->
+          <a href="{{ url_for('static', filename='curriculo_brasil.pdf') }}" target="_blank" class="about__button">
+            📄 Ver Currículo pt-br
+          </a>
           <img
             class="info-block__img"
             src="../static/img/foto.png"
